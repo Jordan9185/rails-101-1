@@ -13,9 +13,12 @@ class GroupsController < ApplicationController
 	end
 	def create
 		@group = Group.new(group_params)
-		@group.save
-
-		redirect_to groups_path
+		if @group.save
+			redirect_to groups_path, notice: "Create Success"
+		else
+			flash[:alert] = "Title can't blank."
+			render :new
+		end
 	end
 	def update
 		@group = Group.find(params[:id])
