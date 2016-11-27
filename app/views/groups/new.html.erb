@@ -1,14 +1,11 @@
 <div class="col-md-4 col-md-offset-4">
     <h2>新增讨论版</h2>
     <hr>
-    <%= form_for Group.new do |f| %>
-    标题
-    <%= f.text_field :title %>
-    <br>
-    叙述
-    <br>
-    <%= f.text_area :description %>
-    <br>
-    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <%= simple_form_for Group.new do |f| %>
+      <div class="form-group">
+        <%= f.input :title, input_html: { class: "form-control"} %>
+        <%= f.input :description, input_html: { class: "form-control"} %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..." } %>
     <% end %>
 </div>
