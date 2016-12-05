@@ -1,0 +1,11 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>编辑post</h2>
+    <hr>
+    <%= form_for @posts, :url => account_post_path(@posts) do |f| %>
+    content
+    <br>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <% end %>
+</div>
